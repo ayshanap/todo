@@ -20,7 +20,7 @@
 }
 
 .controlBTN {
-    position: static;
+    position: relative;
     border: 1px solid blue;
     display: inline-block;
     cursor: pointer;
@@ -30,4 +30,12 @@
 
 .controlBTN:hover {
     background-color: tomato;
+}
+
+
+/*Hogy a böngészőben pointer legyen a kurzor a file tallózásakor is*/
+
+input[type=file],
+input[type=file]::-webkit-file-upload-button {
+    cursor: pointer;
 }
