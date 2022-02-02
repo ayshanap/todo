@@ -11,6 +11,7 @@
 
 <body>
 
+
     <main>
         <input type="text" id="search" placeholder="Search">
         <div class="filter">
@@ -59,7 +60,8 @@
 
             <div>IMPORT</div>
             <div>NEW TODO</div>
-            <div>Export</div>
+
+            <div id="exportBTN" onclick="download('file textss', 'myfilenames.txt', 'text/plain')">Export</div>
 
 
         </div>
@@ -69,6 +71,8 @@
     </main>
 
     <script src="../scripts/script.js"></script>
+
+    <script src="../scripts/fileIO.js"></script>
 </body>
 
 </html>
