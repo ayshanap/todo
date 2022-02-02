@@ -8,6 +8,6 @@
 //done/undone
 //edit
 //import -Chezo
-//export -Chezo
+//export -Chezo - ide ötletek, hogy hogyan kaphatja meg az elementeket a letöltés funkcióm?
 HTML FORM A TODO HOZZÁADÁSÁHOZ
 HTML FORM A TODO SZERKESZTÉSÉHEZ

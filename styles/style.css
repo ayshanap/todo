@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 #table {
     border: 1px solid black;
 }
@@ -15,7 +19,15 @@
     background-color: aqua;
 }
 
-#exportBTN {
+.controlBTN {
+    position: static;
     border: 1px solid blue;
+    display: inline-block;
     cursor: pointer;
+    padding: 1vw;
+    margin-top: 10vw;
+}
+
+.controlBTN:hover {
+    background-color: tomato;
 }

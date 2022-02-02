@@ -11,3 +11,15 @@ function download(filename, text) {
         pom.click();
     }
 }
+
+
+function readJsonFile(file) {
+    let bufferData = fs.readFileSync(file)
+    let stData = bufferData.toString()
+    let data = JSON.parse(stData)
+    return data
+}
+
+fetch("sample.json")
+    .then(response => response.json())
+    .then(data => { console.log(data) })

@@ -1,0 +1,37 @@
+[{
+        "title": "Macska megetetése",
+        "description": "Prémium minőségű táppal",
+        "created": "2020",
+        "deadline": "2022",
+        "priority": "1"
+    },
+
+    {
+        "title": "Bevásárolni",
+        "description": "Liszt, tojás, kenyér, cukor, farhát mert akciós",
+        "created": "2020",
+        "deadline": "2022",
+        "priority": "1"
+    },
+    {
+        "title": "Konditerembe menni",
+        "description": "Pittypang út 23",
+        "created": "2020",
+        "deadline": "2022",
+        "priority": "3"
+    },
+    {
+        "title": "Meglátogatni a nagyit",
+        "description": "todo1 leírása",
+        "created": "2020",
+        "deadline": "2023",
+        "priority": "2"
+    },
+    {
+        "title": "todo",
+        "description": "todo leírása",
+        "created": "2020",
+        "deadline": "2022",
+        "priority": "1"
+    }
+]

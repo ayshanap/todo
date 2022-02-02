@@ -1,6 +1,6 @@
-class Todo {
-
+export default class Todo {
     constructor(name, description, created, deadline, priority) {
+
         this.name = name;
         this.description = description;
         this.created = created;
@@ -8,6 +8,4 @@ class Todo {
         this.priority = priority;
 
     }
-
-
 }

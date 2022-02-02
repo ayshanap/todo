@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+
     <title>Document</title>
 </head>
 
@@ -58,10 +59,12 @@
                 </div>
             </div>
 
-            <div>IMPORT</div>
-            <div>NEW TODO</div>
+            <div id="importBTN" class="controlBTN">IMPORT</div>
 
-            <div id="exportBTN" onclick="download('file textss', 'myfilenames.txt', 'text/plain')">Export</div>
+
+            <div id="addToDo" class="controlBTN">NEW TODO</div>
+
+            <div id="exportBTN" class="controlBTN" onclick="download('MyToDos.txt', ':)', 'text/plain')">Export</div>
 
 
         </div>
@@ -70,7 +73,7 @@
 
     </main>
 
-    <script src="../scripts/script.js"></script>
+    <script type="module" src="../scripts/script.js"></script>
 
     <script src="../scripts/fileIO.js"></script>
 </body>
