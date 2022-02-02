@@ -61,9 +61,8 @@
 
             <div class="controlBTN" style="cursor: pointer;">
                 IMPORT
-                <input id="importBTN" type="file" accept="application/JSON" style="opacity: 0; cursor: pointer; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
+                <input id="importBTN" onchange='onChooseFile(event, onFileLoad.bind(this, "contents"))' type="file" accept="application/JSON" style="opacity: 0; cursor: pointer; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
             </div>
-
 
             <div id="addToDo" class="controlBTN">NEW TODO</div>
 
