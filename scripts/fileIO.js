@@ -3,16 +3,18 @@ let data;
 fetch("/data/sample.json")
     .then(response => response.json())
     .then(x => { data = x });
+data.then(items => console.log(items))
 
-console.log(data)
 
-function download(filename, text) {
-    var pom = document.createElement('a');
+function download() {
+    let filename = "MyToDoList.json"
+    let text = data;
+    let pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     pom.setAttribute('download', filename);
 
     if (document.createEvent) {
-        var event = document.createEvent('MouseEvents');
+        let event = document.createEvent('MouseEvents');
         event.initEvent('click', true, true);
         pom.dispatchEvent(event);
     } else {
