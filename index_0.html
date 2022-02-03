@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <main>
+        <input type="text" id="search" placeholder="Search">
+        <div class="filter">
+            <input type="checkbox" id="listDone" checked>
+            <select id="priority"> 
+            <option value="ALL"> ALL</option>  
+            <option value="1"> 1</option>    
+            <option value="2"> 2</option>   
+            <option value="3"> 3</option>   
+            </select>
+
+            <input type="date" id="date" value="2022-01-01" min="2022-01-01" max="2100-01-01">
+        </div>
+
+
+        <div id="table">
+
+            <div class="row">
+                <div class="inRow">TODO</div>
+                <div class="inRow">Description</div>
+                <div class="inRow">létrehozva</div>
+                <div class="inRow">határidő</div>
+                <div class="inRow">priority</div>
+                <div class="inRow">interact
+
+                    <div class="inRow">Edit</div>
+                    <div class="inRow">Delete</div>
+                    <div class="inRow">done/undone</div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="inRow">Megetetni a cicát</div>
+                <div class="inRow">Prémium táp a szomszédtól</div>
+                <div class="inRow">1órája</div>
+                <div class="inRow">5óra</div>
+                <div class="inRow">3</div>
+                <div class="inRow">interact
+
+                    <div class="inRow">Edit</div>
+                    <div class="inRow">Delete</div>
+                    <div class="inRow">done/undone</div>
+
+                </div>
+            </div>
+
+            <div class="controlBTN" style="cursor: pointer;">
+                IMPORT
+                <input id="importBTN" onchange='onChooseFile(event)' type="file" accept="application/JSON" style="opacity: 0; cursor: pointer; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
+            </div>
+
+            <div id="addToDo" class="controlBTN">NEW TODO</div>
+
+            <div id="exportBTN" class="controlBTN" onclick="download('text/plain')">Export</div>
+
+
+
+            <p id="contents"></p>
+
+        </div>
+
+        <!-- MODAL Test : Magat a FORM-ot beletettem egy tablazatba bar biztos van ra jobb megoldas, egyenlore ez jutott eszembe by: Mate -->
+
+        <div class="modal-new">
+            <div class="modal-box">
+                <h1> Create New </h1>
+                <form id="modal-form" action="#">
+                    <label for="todoName">
+                        Name
+                    </label>
+                    <input type="text" name="todoName" id="todoName">
+                    <label for="todoDescription">Description</label>
+                    <textarea name="todoDescription" id="todoDescription" cols="10" rows="3"></textarea>
+                    <label for="todoDeadline">Deadline</label>
+                    <input type="date" name="todoDeadline" id="todoDeadline" value="2022-02-01" min="2022-01-01" max="2100-12-31">
+                </form>
+                <button id="modal-btn">Create</button>
+                <button class="modalCancel">Cancel</button>
+            </div>
+        </div>
+
+        <!-- MODAL END -->
+    </main>
+
+    <script type="module" src="../scripts/script.js"></script>
+    <script src="../scripts/fileIO.js"></script>
+</body>
+
+</html>
