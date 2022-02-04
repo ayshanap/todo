@@ -1,22 +1,9 @@
 * {
-    box-sizing: border-box;
+    /* border: 1px solid red;*/
 }
 
-#table {
-    border: 1px solid black;
-}
-
-#search {
-    display: inline;
-}
-
-.inRow {
-    display: inline;
-    border: 1px solid red;
-}
-
-.row:hover {
-    background-color: aqua;
+body {
+    background-color: rgb(58, 58, 58);
 }
 
 .controlBTN {
@@ -32,14 +19,17 @@
     background-color: tomato;
 }
 
-/*Hogy a böngészőben pointer legyen a kurzor a file tallózásakor is*/
+
+/*Hogy a böngészőben pointer legyen a kurzor a file tallózásakor (Importgomb) is*/
 
 input[type="file"],
 input[type="file"]::-webkit-file-upload-button {
     cursor: pointer;
 }
 
+
 /*MODAL TEST CSS PROPERTIES by Mate */
+
 .modal-new {
     display: flex;
     border: 2px solid black;
@@ -50,14 +40,6 @@ input[type="file"]::-webkit-file-upload-button {
     justify-content: center;
     text-align: center;
     display: none;
-}
-
-#todoName,
-#todoDescription,
-#todoDeadline {
-    display: block;
-    width: 100%;
-    font-size: 15px;
 }
 
 .modalCancel {
@@ -74,4 +56,6 @@ input[type="file"]::-webkit-file-upload-button {
     margin-top: 20px;
     font-size: 20px;
 }
-/*MODAL TEST CSS END*/ ;
+
+
+/*MODAL TEST CSS END*/
