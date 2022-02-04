@@ -40,7 +40,7 @@ class Todo {
             //edit modal apeare, fields filled with task data
         });
 
-        const delBtn = createBtn("item todoControl todoDelete", "delete");
+        const delBtn = createBtn("item todoControl todoDelete", "X");
         newTask.appendChild(delBtn);
         delBtn.addEventListener("click", () => {
             const todoList = [...document.querySelectorAll(".todo-item")];
