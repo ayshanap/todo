@@ -24,7 +24,6 @@ class Todo {
         `;
 
 
-
         const createBtn = (allClass, title) => {
             const btn = document.createElement("div");
             btn.classList.add(`${title}-btn`);
