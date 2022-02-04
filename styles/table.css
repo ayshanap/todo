@@ -1,0 +1,96 @@
+.table {
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.headLine {
+    color: rgba(150, 150, 150);
+    background-color: rgb(15, 15, 15);
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+.todoName {
+    flex: 5;
+}
+
+.todoDescription {
+    display: none;
+    flex: 1;
+}
+
+.todoPriority {
+    text-align: center;
+}
+
+.todoCreated,
+.todoDeadline,
+.todoPriority {
+    flex: 1;
+}
+
+.todoControl {
+    text-align: center;
+    flex: 1;
+    color: rgba(150, 150, 150);
+}
+
+.headLine :hover {
+    cursor: pointer;
+    color: black;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+}
+
+.row .todoEdit:hover,
+.todoDelete:hover,
+.todoUnDone:hover {
+    cursor: pointer;
+    color: black;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+}
+
+.todoDelete:hover {
+    cursor: pointer;
+    color: rgb(255, 37, 37);
+    text-shadow: 0 0 7px red, 0 0 10px red, 0 0 21px red, 0 0 42px pink, 0 0 82px pink, 0 0 92px pink, 0 0 102px pink, 0 0 151px pink;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+
+.todo-list-ctn div.row:nth-of-type(even) {
+    background-color: rgba(50, 50, 50);
+}
+
+.row:hover,
+.todo-list-ctn div.row:nth-of-type(even):hover {
+    color: rgba(65, 65, 65);
+    background-color: rgba(30, 30, 30);
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] {
+    background: #999;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    padding: 0 0 0 0px;
+}
+
+input[type=checkbox]:checked {
+    background: #0080FF;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    padding: 0 0 0 0px;
+}
