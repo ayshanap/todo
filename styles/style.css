@@ -1,77 +1,77 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #table {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 #search {
-    display: inline;
+  display: inline;
 }
 
 .inRow {
-    display: inline;
-    border: 1px solid red;
+  display: inline;
+  border: 1px solid red;
 }
 
 .row:hover {
-    background-color: aqua;
+  background-color: aqua;
 }
 
 .controlBTN {
-    position: relative;
-    border: 1px solid blue;
-    display: inline-block;
-    cursor: pointer;
-    padding: 1vw;
-    margin-top: 10vw;
+  position: relative;
+  border: 1px solid blue;
+  display: inline-block;
+  cursor: pointer;
+  padding: 1vw;
+  margin-top: 10vw;
 }
 
 .controlBTN:hover {
-    background-color: tomato;
+  background-color: tomato;
 }
 
 /*Hogy a böngészőben pointer legyen a kurzor a file tallózásakor is*/
 
 input[type="file"],
 input[type="file"]::-webkit-file-upload-button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /*MODAL TEST CSS PROPERTIES by Mate */
-.modal-new {
-    display: flex;
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 400px;
-    height: 400px;
-    padding: 0px;
-    justify-content: center;
-    text-align: center;
-    display: none;
+.modalNewTask {
+  display: flex;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 400px;
+  height: 400px;
+  padding: 0px;
+  justify-content: center;
+  text-align: center;
+  display: none;
 }
 
 #todoName,
 #todoDescription,
 #todoDeadline {
-    display: block;
-    width: 100%;
-    font-size: 15px;
+  display: block;
+  width: 100%;
+  font-size: 15px;
 }
 
 .modalCancel {
-    font-size: 15px;
-    background: red;
-    color: white;
-    margin-top: 20px;
-    display: block;
-    width: 100%;
+  font-size: 15px;
+  background: red;
+  color: white;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
 }
 
-#modal-btn {
-    width: 100%;
-    margin-top: 20px;
-    font-size: 20px;
+#createNewTodoBtn {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 20px;
 }
 /*MODAL TEST CSS END*/ ;

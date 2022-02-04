@@ -44,7 +44,7 @@
             <div class="inRow">done/undone</div>
           </div>
         </div>
-        <div class="todo-list-ctn">
+        <div class="todoListCtn"> 
           <div class="row">
             <div class="inRow">Megetetni a cicát</div>
             <div class="inRow">Prémium táp a szomszédtól</div>
@@ -81,7 +81,7 @@
           />
         </div>
 
-        <div id="addToDo" class="controlBTN">NEW TODO</div>
+        <div id="newToDoBtn" class="controlBTN">NEW TODO</div>
 
         <div id="exportBTN" class="controlBTN" onclick="download('text/plain')">
           Export
@@ -92,10 +92,10 @@
 
       <!-- MODAL Test : Magat a FORM-ot beletettem egy tablazatba bar biztos van ra jobb megoldas, egyenlore ez jutott eszembe by: Mate -->
 
-      <div class="modal-new">
-        <div class="modal-box">
-          <h1>Create New</h1>
-          <form id="modal-form" action="#">
+      <div class="modalNewTask">
+        <div class="modalCtn">
+          <h1>Create New Todo</h1>
+          <form id="modalForm" action="#">
             <label for="todoName"> Name </label>
             <input type="text" name="todoName" id="todoName" />
             <label for="todoDescription">Description</label>
@@ -115,8 +115,8 @@
               max="2100-12-31"
             />
           </form>
-          <button id="modal-btn">Create</button>
-          <button class="modalCancel">Cancel</button>
+          <button type="submit" id="createNewTodoBtn">Create</button>
+          <button type="button" class="modalCancel">Cancel</button>
         </div>
       </div>
 
