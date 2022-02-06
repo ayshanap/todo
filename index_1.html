@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script
+      src="https://kit.fontawesome.com/fe69e6317d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>To Do</h1>
+      <div class="head">
+        <div id="date">
+          2022.02.02<br />
+          Wednesday
+        </div>
+        <button class="newBtn mobile">New to do</button>
+        <div class="sum desktop">
+          <p id="todo-items-left">You have x pending items.</p>
+        </div>
+      </div>
+      <div class="sum mobile">
+        <p>You have x pending items.</p>
+      </div>
+      <div id="search">
+        <button><i class="fas fa-search"></i></button>
+        <input type="search" placeholder="Search all" />
+
+        <input type="search" placeholder="Created" />
+        <input type="search" placeholder="Deadline" />
+        <select id="priority">
+          <option value="ALL">ALL</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div id="container-todo">
+        <div class="container-active">
+          <div class="todo active">
+            <div class="todo-main active">
+              <input type="checkbox" id="listDone" class="check" />
+              <!-- ID maybe not need -->
+              <h2 class="todoName">Feed the cat</h2>
+              <div class="details-dt">
+                <p class="details-dt-createdTime">2022.02.02.</p>
+                <p class="details-dt-deadline">2022.03.01.</p>
+                <p class="details-dt-priority">1</p>
+                <button class="editBtn desktop">Edit</button>
+              </div>
+              <a class="delBtn" href="">X</a>
+            </div>
+            <div class="todo-descr active">
+              <p>Lorem ipsum dolor sit amet</p>
+              <div class="details-mobile">
+                <ul>
+                  <li>Prio: 1</li>
+                  <li>Created: 2022.02.02</li>
+                  <li>Deadline: 2022.03.01</li>
+                </ul>
+                <button class="editBtn mobile">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-completed">
+          <div class="todo completed">
+            <div class="todo-main completed">
+              <input type="checkbox" id="listDone" class="check" />
+              <h2 class="todoName">Feed the cat</h2>
+              <div class="details-dt">
+                <p class="details-dt-createdTime">2022.02.02.</p>
+                <p class="details-dt-deadline">2022.03.01.</p>
+                <p class="details-dt-priority">1</p>
+                <button class="editBtn desktop">Edit</button>
+              </div>
+              <a class="delBtn" href="">X</a>
+            </div>
+            <div class="todo-descr completed">
+              <p>Lorem ipsum dolor sit amet</p>
+              <div class="details-mobile">
+                <ul>
+                  <li>Prio: 1</li>
+                  <li>Created: 2022.02.02</li>
+                  <li>Deadline: 2022.03.01</li>
+                </ul>
+                <button class="editBtn mobile">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="view">
+        <span class="filterBtn" data-taskdone="">All</span>
+        <!-- js miatt valtoztattam, a helyett talan span tag -->
+        <span class="filterBtn" data-taskdone="false">Active</span>
+        <!-- js miatt valtoztattam -->
+        <span class="filterBtn" data-taskdone="true">Completed</span>
+        <!-- js miatt valtoztattam -->
+      </div>
+      <div class="btns-mobile">
+        <button class="impExpBtn">Import</button>
+        <button id="lightDark"><i class="fas fa-moon"></i></button>
+        <button id="lightDark"><i class="fas fa-sun"></i></button>
+        <button class="impExpBtn">Export</button>
+        <button class="newBtn desktop">New to do</button>
+      </div>
+    </div>
+    <!-- NEW TODO MODAL -->
+    <div class="modal-new inactive">
+      <div class="modal-box">
+        <h1>Create New</h1>
+        <form id="modal-form" action="#">
+          <label for="newTodoName"> Name </label>
+          <input type="text" name="newTodoName" id="newTodoName" />
+          <label for="newTodoDescription">Description</label>
+          <textarea
+            name="newTodoDescription"
+            id="newTodoDescription"
+            cols="10"
+            rows="3"
+          ></textarea>
+          <label for="newtodoDeadline">Deadline</label>
+          <input
+            type="date"
+            name="newTodoDeadline"
+            id="newTodoDeadline"
+            value="2022-02-01"
+            min="2022-01-01"
+            max="2100-12-31"
+          />
+          <select id="prioSelector">
+            <option value="" selected disabled>Prio</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </form>
+        <button id="createNewTodoModalBtn">Create</button>
+        <button class="modalCancel">Cancel</button>
+      </div>
+    </div>
+    <script defer type="module" src="./scripts/TodoList.js"></script>
+  </body>
+</html>

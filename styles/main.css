@@ -1,0 +1,321 @@
+/* COLORS
+    --color1: text;
+    --color2: container bg, buttontext;
+    --color3: todo main active;
+    --color4: todo main descr;
+    --color5: btn bg (import, export);
+    --color6: todo main completed;
+    --color7: todo descr completed;
+    --color8: new btn bg;
+    --color9: btn bg (edit)
+*/
+
+:root {
+  --bgImg: url("../img/bg_light.jpg");
+  --color1: #50b9bd;
+  --color2: #ffffff;
+  --color3: #ffffff;
+  --color4: #ffffff;
+  --color5: #50b9bd;
+  --color6: #cbcbcb;
+  --color7: #e5e5e5;
+  --color8: #d23a11;
+  --color9: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bgImg: url("../img/bg_dark.jpg");
+  --color1: #d2d2d2;
+  --color2: #222222;
+  --color3: #333333;
+  --color4: #3c3c3c;
+  --color5: #50b9bd;
+  --color6: #00495c;
+  --color7: #013543;
+  --color8: #8105c2;
+  --color9: #50b9bd;
+}
+
+/* jshez kell */
+.inactive {
+  display: none;
+}
+/* end */
+
+body {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  background-image: var(--bgImg);
+  /* background-image: url("img/bg_light.jpg"); */
+  background-repeat: no-repeat;
+  /* background-size: contain; */
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border-radius: 0.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 5vw;
+}
+
+#date {
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.newBtn {
+  background-color: rgb(70, 130, 180);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 40vw;
+  text-align: center;
+}
+
+.sum.desktop {
+  display: none;
+}
+
+#search {
+  display: none;
+}
+
+#search input {
+  height: 2rem;
+  margin-right: 0;
+}
+
+#search button {
+  margin: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.todo-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4vw 2vw 0;
+  padding: 2vw;
+  border-top-left-radius: 2vw;
+  border-top-right-radius: 2vw;
+}
+
+.todo-main.active {
+  background-color: yellow;
+}
+
+.todo-main.completed {
+  background-color: steelblue;
+  color: white;
+}
+
+.details-dt {
+  display: none;
+}
+
+.delBtn {
+  font-weight: 900;
+  font-size: 2rem;
+  text-decoration: none;
+  justify-self: end;
+}
+
+.todo-descr {
+  background-color: #f7fad2;
+  margin: 0 2vw;
+  padding: 2vw;
+  border-bottom-left-radius: 2vw;
+  border-bottom-right-radius: 2vw;
+}
+
+.todo-descr.completed {
+  background-color: #cdebf7;
+}
+
+.details-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.details-mobile ul {
+  text-align: left;
+}
+
+.editBtn {
+  width: 30vw;
+  font-size: 1.5rem;
+}
+
+.check {
+  width: 6vw;
+  height: 6vw;
+  border-radius: 10vw;
+  margin: 2vw;
+}
+
+.delBtn {
+  margin: 2vw;
+}
+
+.view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2vw 25vw;
+}
+
+.btns-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2vw;
+}
+
+.newBtn.desktop {
+  display: none;
+}
+
+.impExpBtn {
+  width: 30vw;
+  height: 10vw;
+  font-size: 1.5rem;
+}
+
+#lightDark {
+  background: transparent;
+  border: none;
+  color: yellow;
+  font-size: 2rem;
+}
+
+/* NEW MODAL */
+.modal-new {
+  position: absolute;
+  top: 0;
+  background-color: white;
+}
+/* END */
+
+@media only screen and (min-width: 992px) {
+  h1 {
+    text-align: left;
+  }
+
+  .head-mobile {
+    padding: 0;
+  }
+
+  .sum.mobile {
+    display: none;
+  }
+
+  .sum.desktop {
+    display: flex;
+    font-size: 2rem;
+  }
+
+  .container {
+    max-width: 60vw;
+    margin: 0 auto;
+    padding: 6vw;
+  }
+
+  .newBtn.mobile {
+    display: none;
+  }
+
+  #search {
+    display: flex;
+    width: 100%;
+    margin: 1vw;
+  }
+
+  .todo-main {
+    width: 100%;
+    margin: 0;
+    height: 10vh;
+    border-radius: 0.5rem;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .todo-descr {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .check {
+    width: 5vw;
+  }
+
+  .todoName {
+    width: 30vw;
+  }
+
+  .details-dt {
+    display: flex;
+    align-items: center;
+    width: 60%;
+  }
+
+  .details-dt-createdTime {
+    width: 15vw;
+  }
+
+  .details-dt-deadline {
+    width: 15vw;
+  }
+
+  .details-dt-priority {
+    width: 10vw;
+  }
+
+  .editBtn.mobile {
+    display: none;
+    width: 20vw;
+  }
+
+  .editBtn.desktop {
+    width: 10vw;
+    height: 5vw;
+  }
+
+  .details-mobile {
+    display: none;
+  }
+
+  .impExpBtn {
+    width: 10vw;
+    height: 5vw;
+  }
+
+  .newBtn.desktop {
+    display: flex;
+    width: 15vw;
+  }
+}
