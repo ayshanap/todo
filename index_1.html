@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme=""> //ez egyutt tettuk bele
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -113,14 +113,13 @@
       </div>
       <div class="btns-mobile">
         <button class="impExpBtn">Import</button>
-        <button id="lightDark"><i class="fas fa-moon"></i></button>
-        <button id="lightDark"><i class="fas fa-sun"></i></button>
+        <i id="lightDarkIcon" class="fas fa-moon"></i> // egy icon a lightdark modhoz
         <button class="impExpBtn">Export</button>
         <button class="newBtn desktop">New to do</button>
       </div>
     </div>
     <!-- NEW TODO MODAL -->
-    <div class="modal-new inactive">
+    <div class="modal-new inactive" data-type='new' data-taskid=''> //data-type,data-taskid hozza adtam
       <div class="modal-box">
         <h1>Create New</h1>
         <form id="modal-form" action="#">
@@ -154,5 +153,6 @@
       </div>
     </div>
     <script defer type="module" src="./scripts/TodoList.js"></script>
+    <!-- <script src="./scripts/lightDark.js"></script> -->
   </body>
 </html>

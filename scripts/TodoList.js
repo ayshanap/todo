@@ -10,7 +10,10 @@ class TodoList {
   init() {
     console.log();
     const date = document.querySelector("#date");
-    date.innerHTML = `${this.getDate(this.date)}<br />${this.getToday()}`;
+    date.innerHTML = `${this.getFormatedDate(
+      this.date,
+      "."
+    )}<br />${this.getToday()}`;
 
     const newTodoBtns = document.querySelectorAll(".newBtn");
     newTodoBtns.forEach((btn) =>
@@ -28,17 +31,20 @@ class TodoList {
     this.renderList(this.list);
 
     this.initFilters();
+    this.initColorThemeChange();
     this.initNewTodoModal();
   }
 
-  getDate(date) {
+  getFormatedDate(date, separator) {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
     const setTwoDigit = (value) => {
       return value < 10 ? "0" + value : value;
     };
-    return `${year}.${setTwoDigit(month)}.${setTwoDigit(day)}`;
+    return `${year}${separator}${setTwoDigit(month)}${separator}${setTwoDigit(
+      day
+    )}`;
   }
 
   getToday() {
@@ -84,6 +90,26 @@ class TodoList {
   // orderBy(category) {
   //   const categoryValues = this.list.map((task) => task[category]);
   // }
+
+  initColorThemeChange() {
+    const lightDarkIcon = document.querySelector("#lightDarkIcon");
+    // window.addEventListener("click", (e) => console.log(e.target));
+
+    const changeColor = (lightDarkIcon) => {
+      const html = document.querySelector("html");
+      if (lightDarkIcon.classList.value.includes("fa-moon")) {
+        lightDarkIcon.classList.remove("fa-moon");
+        lightDarkIcon.classList.add("fa-sun");
+        html.dataset.theme = "dark";
+      } else {
+        lightDarkIcon.classList.remove("fa-sun");
+        lightDarkIcon.classList.add("fa-moon");
+        html.dataset.theme = "";
+      }
+    };
+
+    lightDarkIcon.addEventListener("click", () => changeColor(lightDarkIcon));
+  }
 
   initFilters() {
     const filterBtns = document.querySelectorAll(".filterBtn");
@@ -132,34 +158,59 @@ class TodoList {
     const newTodoName = document.querySelector("#newTodoName");
     const newTodoDescription = document.querySelector("#newTodoDescription");
     const newTodoDeadline = document.querySelector("#newTodoDeadline");
+    newTodoDeadline.value = this.getFormatedDate(this.date, "-");
+    newTodoDeadline.min = this.getFormatedDate(this.date, "-");
     const prioSelector = document.querySelector("#prioSelector");
     const createNewTodoModalBtn = document.querySelector(
       "#createNewTodoModalBtn"
     );
     const modalCancel = document.querySelector(".modalCancel");
 
-    console.log(newTodoName);
+    const resetNewTodoModal = () => {
+      newTodoName.value = "";
+      newTodoDescription.value = "";
+      newTodoDeadline.value = newTodoDeadline.min;
+      prioSelector.value = "";
+    };
+    modalCancel.addEventListener("click", () => {
+      resetNewTodoModal();
+      newTodoModal.classList.add("inactive");
+    });
+
     const validateForm = (fieldsForValidate) => {
       fieldsForValidate.forEach((field) => console.log(field.value));
     };
 
     createNewTodoModalBtn.addEventListener("click", () => {
-      validateForm([newTodoName, newTodoDeadline, prioSelector]); // Validation need to solve
-      console.log();
-      this.lastID++;
+      // validateForm([newTodoName, newTodoDeadline, prioSelector]); // Validation need to solve
 
-      this.list.push({
-        id: this.lastID,
-        name: newTodoName.value,
-        description: newTodoDescription.value,
-        createAt: Date.parse(this.date),
-        deadline: Date.parse(newTodoDeadline.value),
-        priority: prioSelector.value,
-        taskDone: false,
-      });
+      if (newTodoModal.dataset.type === "new") {
+        console.log(newTodoModal.dataset.type);
+        this.lastID++;
 
-      newTodoModal.classList.add("inactive");
-      this.renderList(this.list);
+        this.list.push({
+          id: this.lastID,
+          name: newTodoName.value,
+          description: newTodoDescription.value,
+          createAt: Date.parse(this.date),
+          deadline: Date.parse(newTodoDeadline.value),
+          priority: prioSelector.value,
+          taskDone: false,
+        });
+
+        resetNewTodoModal();
+        newTodoModal.classList.add("inactive");
+
+        this.renderList(this.list);
+      }
+
+      if (newTodoModal.dataset.type === "edit") {
+        const editedTask = this.list.find(
+          (item) => item.id === parseInt(newTodoModal.dataset.taskid)
+        );
+        
+        
+      }
     });
   }
 }

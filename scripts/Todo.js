@@ -84,11 +84,13 @@ class Todo {
 
     detailsCtn.innerHTML = `<ul>
                <li>Prio: ${this.task.priority}</li>
-               <li>Created: ${this.todoList.getDate(
-                 new Date(this.task.createAt)
+               <li>Created: ${this.todoList.getFormatedDate(
+                 new Date(this.task.createAt),
+                 "."
                )}</li>
-               <li>Deadline: ${this.todoList.getDate(
-                 new Date(this.task.deadline)
+               <li>Deadline: ${this.todoList.getFormatedDate(
+                 new Date(this.task.deadline),
+                 "."
                )}</li>
              </ul>`;
 
@@ -98,7 +100,32 @@ class Todo {
     editBtn.classList.add("editBtn");
     editBtn.innerText = "Edit";
 
-    editBtn.addEventListener("click", () => {});
+    editBtn.addEventListener("click", () => {
+      const editTodoModal = document.querySelector(".modal-new");
+      editTodoModal.dataset.type = "edit";
+      editTodoModal.dataset.taskid = this.task.id;
+      const editTodoName = document.querySelector("#newTodoName");
+      editTodoName.value = this.task.name;
+
+      const editTodoDescription = document.querySelector("#newTodoDescription");
+      editTodoDescription.value = this.task.description;
+
+      const editTodoDeadline = document.querySelector("#newTodoDeadline");
+
+      editTodoDeadline.value = this.todoList.getFormatedDate(
+        new Date(this.task.deadline),
+        "-"
+      );
+      const prioSelector = document.querySelector("#prioSelector");
+      prioSelector.value = this.task.priority;
+
+      const createNewTodoModalBtn = document.querySelector(
+        "#createNewTodoModalBtn"
+      );
+      createNewTodoModalBtn.innerText = "Edit";
+      editTodoModal.classList.remove("inactive");
+    });
+
     detailsCtn.appendChild(editBtn);
     return todoMain;
   }
