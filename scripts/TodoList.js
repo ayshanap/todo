@@ -187,6 +187,15 @@ class TodoList {
       createNewTodoModalBtn.innerText = "Create";
       const newTodoModalTitle = document.querySelector(".newTodoModalTitle");
       newTodoModalTitle.innerText = "Create New Todo";
+      const invalidMsgs = document.querySelectorAll(".invalidMsg");
+      invalidMsgs.forEach((invalidMsg) => {
+        if (!invalidMsg.classList.value.includes("inactive")) {
+          invalidMsg.classList.add("inactive");
+        }
+      });
+
+      const invalidFields = document.querySelectorAll(".invalid");
+      invalidFields.forEach((item) => item.classList.remove("invalid"));
     });
 
     const validateFields = [newTodoName, prioSelector];
@@ -201,7 +210,6 @@ class TodoList {
         if (item.classList.value.includes("invalid")) {
           item.classList.remove("invalid");
         }
-        item.classList.remove("invalid");
       } else {
         if (invalidMsgs[index].classList.value.includes("inactive")) {
           invalidMsgs[index].classList.remove("inactive");
@@ -211,8 +219,11 @@ class TodoList {
           }
         }
       }
+
       if (formIsValid[0] && formIsValid[1]) {
         createNewTodoModalBtn.disabled = false;
+      } else {
+        createNewTodoModalBtn.disabled = true;
       }
     };
 
