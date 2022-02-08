@@ -1,5 +1,6 @@
 <!DOCTYPE html>
- <html lang="en" data-theme=""> <!--ez egyutt tettuk bele -->
+<html lang="en" data-theme="">
+  <!--ez egyutt tettuk bele -->
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,6 +17,8 @@
       src="https://kit.fontawesome.com/fe69e6317d.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="styles/fileInput.css" />
+    <link rel="stylesheet" href="styles/createNewTodoModal.css" />
   </head>
 
   <body>
@@ -112,19 +115,28 @@
         <!-- js miatt valtoztattam -->
       </div>
       <div class="btns-mobile">
-        <button class="impExpBtn">Import</button>
-        <i id="lightDarkIcon" class="fas fa-moon"></i> <!-- egy icon a lightdark modhoz -->
-        <button class="impExpBtn">Export</button>
+        <button id="importBtn" class="impExpBtn">
+          <label for="fileInput" class="importLabel">Import</label>
+          <input id="fileInput" type="file" accept="application/JSON" />
+        </button>
+        <!-- import Button-t atalakitottam -->
+
+        <i id="lightDarkIcon" class="fas fa-moon"></i>
+        <!-- egy icon a lightdark modhoz -->
+        <button id="exportBTN" class="impExpBtn">Export</button>
         <button class="newBtn desktop">New to do</button>
       </div>
     </div>
     <!-- NEW TODO MODAL -->
-    <div class="modal-new inactive" data-type='new' data-taskid=''> <!-- data-type,data-taskid hozza adtam -->
+    <div class="modal-new modal inactive" data-type="new" data-taskid="">
+      <!-- data-type,data-taskid hozza adtam -->
       <div class="modal-box">
-        <h1>Create New</h1>
+        <h1 class="newTodoModalTitle">Create New Todo</h1>
+        <!-- uj classt adtam hozza-->
         <form id="modal-form" action="#">
-          <label for="newTodoName"> Name </label>
+          <label for="newTodoName" plac>Name</label>
           <input type="text" name="newTodoName" id="newTodoName" />
+          <p class="invalidMsg inactive">Name is required!</p>
           <label for="newTodoDescription">Description</label>
           <textarea
             name="newTodoDescription"
@@ -132,27 +144,38 @@
             cols="10"
             rows="3"
           ></textarea>
-          <label for="newtodoDeadline">Deadline</label>
-          <input
-            type="date"
-            name="newTodoDeadline"
-            id="newTodoDeadline"
-            value="2022-02-01"
-            min="2022-01-01"
-            max="2100-12-31"
-          />
-          <select id="prioSelector">
-            <option value="" selected disabled>Prio</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
+          <div class="deadlinePrioCtn">
+            <div class="newTodoDeadLineCtn">
+              <label for="newtodoDeadline">Deadline</label>
+              <input
+                type="date"
+                name="newTodoDeadline"
+                id="newTodoDeadline"
+                value="2022-02-01"
+                min="2022-01-01"
+                max="2100-12-31"
+              />
+            </div>
+            <div class="prioCtn">
+              <label for="prioSelector">Priority</label>
+              <select id="prioSelector">
+                <option value="" selected disabled></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <p class="invalidMsg inactive">Required!</p>
+            </div>
+          </div>
         </form>
-        <button id="createNewTodoModalBtn">Create</button>
-        <button class="modalCancel">Cancel</button>
+        <div class="createNewTodoBtnsCtn">
+          <button type="button" class="modalCancel">Cancel</button>
+          <button type="button" id="createNewTodoModalBtn" disabled>
+            Create
+          </button>
+        </div>
       </div>
     </div>
     <script defer type="module" src="./scripts/TodoList.js"></script>
-    <!-- <script src="./scripts/lightDark.js"></script> -->
   </body>
 </html>

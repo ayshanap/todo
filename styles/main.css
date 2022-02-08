@@ -47,7 +47,7 @@ body {
   margin: 0;
   text-align: center;
   font-family: "Roboto", sans-serif;
-  background-image: var(--bgImg);
+
   /* background-image: url("img/bg_light.jpg"); */
   background-repeat: no-repeat;
   /* background-size: contain; */
@@ -212,15 +212,10 @@ button {
   font-size: 2rem;
 }
 
-/* NEW MODAL */
-.modal-new {
-  position: absolute;
-  top: 0;
-  background-color: white;
-}
-/* END */
-
 @media only screen and (min-width: 992px) {
+  body {
+    background-image: var(--bgImg);
+  }
   h1 {
     text-align: left;
   }
