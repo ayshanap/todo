@@ -28,8 +28,7 @@ class Todo {
     }
 
     checkInput.addEventListener("click", (e) => {
-      const taskInDom = this.getTaskElement(this.task.id);
-      console.log(taskInDom);
+      const taskInDom = Todo.getTaskElement(this.task.id);
       const taskInObj = this.todoList.list.find(
         (elem) => elem.id === this.task.id
       );
@@ -62,9 +61,9 @@ class Todo {
     todoMain.appendChild(delBtn);
 
     delBtn.addEventListener("click", () => {
-      const itemForDelete = this.getTaskElement(this.task.id);
+      const itemForDelete = Todo.getTaskElement(this.task.id);
       itemForDelete.remove();
-      this.todoList.removeTask(this.task.id);
+      this.removeTask(this.task.id);
       if (!this.task.taskDone) {
         this.todoList.setNumberOfTaskLeft(this.todoList.list);
       }
@@ -102,8 +101,12 @@ class Todo {
 
     editBtn.addEventListener("click", () => {
       const editTodoModal = document.querySelector(".modal-new");
+      editTodoModal.style.top = `${window.scrollY}px`;
       editTodoModal.dataset.type = "edit";
       editTodoModal.dataset.taskid = this.task.id;
+      const newTodoModalTitle = document.querySelector(".newTodoModalTitle");
+      newTodoModalTitle.innerText = "Edit Todo";
+
       const editTodoName = document.querySelector("#newTodoName");
       editTodoName.value = this.task.name;
 
@@ -124,13 +127,30 @@ class Todo {
       );
       createNewTodoModalBtn.innerText = "Edit";
       editTodoModal.classList.remove("inactive");
+      const body = document.querySelector("body");
+      body.classList.add("modalActive");
     });
 
     detailsCtn.appendChild(editBtn);
     return todoMain;
   }
 
-  getTaskElement(taskId) {
+  removeTask(id) {
+    const taskId = this.todoList.list.findIndex((task) => task.id === id);
+    this.todoList.list.splice(taskId, 1);
+  }
+
+  static editTodo(domElement, todoObj, getFormatedDate) {
+    domElement.children[0].children[1].innerText = todoObj.name;
+    domElement.children[1].children[0].innerText = todoObj.description;
+    domElement.children[1].children[1].children[0].children[0].innerHTML = `Prio: ${todoObj.priority}`;
+    domElement.children[1].children[1].children[0].children[2].innerHTML = `Deadline: ${getFormatedDate(
+      new Date(todoObj.deadline),
+      "."
+    )}`;
+  }
+
+  static getTaskElement(taskId) {
     const todoList = [...document.querySelectorAll(".todo")];
     return todoList.find((task) => parseFloat(task.dataset.id) === taskId);
   }
